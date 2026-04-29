@@ -52,8 +52,10 @@ export default function App() {
           <h1 className="text-3xl font-semibold tracking-tight">Albert Ho</h1>
 
           <p className="mt-4 max-w-lg text-base leading-7 text-balance text-[var(--text-secondary)]">
-            Hi, I'm Albert. I build products that help people get things done. I
-            care about clean architecture and high-quality UI.
+            Frontend Engineer focused on building fast, polished, and
+            maintainable web experiences. I care about clean architecture,
+            thoughtful UX, and product details that make software feel better to
+            use.
           </p>
         </motion.header>
 
@@ -88,7 +90,9 @@ export default function App() {
             </div>
 
             <p className="mt-4 text-sm leading-6 text-[var(--text-secondary)]">
-              Owned frontend architecture for marketing and developer platforms.
+              Owned frontend architecture for marketing and developer platforms,
+              building React&#8209;based applications, technical demos, and
+              customer&#8209;facing interfaces.
             </p>
           </article>
         </motion.section>
@@ -123,8 +127,9 @@ export default function App() {
               </h3>
 
               <p className="mt-2 text-sm leading-6 text-[var(--text-secondary)]">
-                Pomodoro-style focus timer with real-time session timing and
-                insights.
+                A Pomodoro&#8209;style focus timer featuring real-time progress
+                feedback, configurable settings, and a responsive, fully
+                keyboard-accessible UI.
               </p>
 
               <div className="mt-4 flex flex-wrap gap-2">
