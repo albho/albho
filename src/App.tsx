@@ -51,9 +51,9 @@ export default function App() {
         <motion.header {...motionProps}>
           <h1 className="text-3xl font-semibold tracking-tight">Albert Ho</h1>
 
-          <p className="mt-4 max-w-lg text-base leading-7 text-[var(--text-secondary)]">
-            Hi, I'm Albert. I build products that help people get things done.
-            <br />I care about clean architecture and high-quality UI.
+          <p className="mt-4 max-w-lg text-base leading-7 text-balance text-[var(--text-secondary)]">
+            Hi, I'm Albert. I build products that help people get things done. I
+            care about clean architecture and high-quality UI.
           </p>
         </motion.header>
 
@@ -89,8 +89,6 @@ export default function App() {
 
             <p className="mt-4 text-sm leading-6 text-[var(--text-secondary)]">
               Owned frontend architecture for marketing and developer platforms.
-              Shipped React apps used by thousands of users; improved
-              performance, usability, and SEO.
             </p>
           </article>
         </motion.section>
@@ -125,8 +123,8 @@ export default function App() {
               </h3>
 
               <p className="mt-2 text-sm leading-6 text-[var(--text-secondary)]">
-                A Pomodoro-style focus timer with real-time session tracking,
-                configurable cycles, and a clean, accessible UI.
+                Pomodoro-style focus timer with real-time session timing and
+                insights.
               </p>
 
               <div className="mt-4 flex flex-wrap gap-2">
