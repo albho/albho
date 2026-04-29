@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <g transform="translate(50 50) scale(0.78) translate(-50 -50)">
+    <path
+      d="
+        M 50 8
+        C 65 20 82 45 82 65
+        A 32 32 0 1 1 18 65
+        C 18 45 35 20 50 8
+        Z
+      "
+      fill="#cbd5e1"
+    />
+  </g>
+</svg>
