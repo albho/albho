@@ -42,7 +42,7 @@ export default function SectionHeading({ id, children }: SectionHeadingProps) {
         className="
           group -ml-5 flex items-center
           cursor-pointer
-          text-sm font-semibold uppercase tracking-widest
+          text-base font-semibold uppercase tracking-widest
           text-[var(--text-muted)]
           transition hover:text-[var(--text-primary)]
         "

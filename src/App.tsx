@@ -44,23 +44,26 @@ const motionProps = {
 
 export default function App() {
   return (
-    <div className="mx-auto min-h-screen max-w-2xl px-6 py-8 text-[var(--text-primary)]">
+    <div className="mx-auto min-h-screen max-w-2xl p-6 text-[var(--text-primary)]">
       <Header />
 
-      <main className="my-24">
+      <main className="my-28">
         <motion.header {...motionProps}>
-          <h1 className="text-3xl font-semibold tracking-tight">Albert Ho</h1>
+          <h1 className="font-mono text-4xl font-semibold">Albert Ho</h1>
 
-          <p className="mt-4 max-w-lg text-base leading-7 text-balance text-[var(--text-secondary)]">
-            Frontend Engineer focused on building fast, polished, and
-            maintainable web experiences. I care about clean architecture,
-            thoughtful UX, and product details that make software feel better to
-            use.
+          <p className="mt-4 text-lg leading-8 text-[var(--text-secondary)]">
+            Hi there, I'm Albert. I'm a frontend engineer based in Vancouver.
+          </p>
+
+          <p className="mt-2 text-lg leading-8 text-balance text-[var(--text-secondary)]">
+            I mainly work with React and TypeScript. I care a lot about
+            component architecture, UI/UX and accessibility details, and
+            frontend performance.
           </p>
         </motion.header>
 
         <motion.hr
-          className="my-10 border-[var(--line)]"
+          className="my-10 border-dashed border-[var(--line)]"
           {...motionProps}
           transition={{ ...motionProps.transition, delay: 0.1 }}
         />
@@ -71,34 +74,34 @@ export default function App() {
         >
           <SectionHeading id="experience">Experience</SectionHeading>
 
-          <article className="mt-5 rounded-lg border border-[var(--line)] bg-[var(--card)] p-5">
+          <article className="mt-5">
             <div className="flex items-start justify-between gap-4">
               <div>
                 <h3 className="font-medium">Frontend Engineer</h3>
 
                 <ExternalLink
                   href="https://picovoice.ai"
-                  className="mt-1 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+                  className="mt-1 text-base text-[var(--link)] underline decoration-[var(--line)] underline-offset-4 hover:text-[var(--link-hover)] hover:decoration-current"
                 >
                   Picovoice Inc.
                 </ExternalLink>
               </div>
 
-              <time className="shrink-0 text-sm text-[var(--text-muted)]">
+              <time className="shrink-0 text-base text-[var(--text-muted)]">
                 2022 — 2026
               </time>
             </div>
 
-            <p className="mt-4 text-sm leading-6 text-[var(--text-secondary)]">
-              Owned frontend architecture for marketing and developer platforms,
-              building React&#8209;based applications, technical demos, and
-              customer&#8209;facing interfaces.
+            <p className="mt-4 text-base leading-7 text-[var(--text-secondary)]">
+              Owned frontend platforms across marketing and product experiences.
+              Built React interfaces that supported 2x user growth and helped
+              improve product adoption.
             </p>
           </article>
         </motion.section>
 
         <motion.hr
-          className="my-10 border-[var(--line)]"
+          className="my-10 border-dashed border-[var(--line)]"
           {...motionProps}
           transition={{ ...motionProps.transition, delay: 0.3 }}
         />
@@ -109,37 +112,37 @@ export default function App() {
         >
           <SectionHeading id="projects">Projects</SectionHeading>
 
-          <article className="mt-5 overflow-hidden rounded-lg border border-[var(--line)] bg-[var(--card)]">
+          <article className="mt-5">
             <img
               src={intfocPresentation}
               alt="IntFoc timer interface"
-              className="w-full border-b border-[var(--line)] object-cover p-5"
+              className="w-full object-cover"
             />
 
-            <div className="p-5">
+            <div className="mt-5">
               <h3 className="font-medium">
                 <ExternalLink
                   href="https://intfoc.ca"
-                  className="hover:text-[var(--text-secondary)]"
+                  className="text-[var(--link)] underline decoration-[var(--line)] underline-offset-4 hover:text-[var(--link-hover)] hover:decoration-current"
                 >
                   IntFoc
                 </ExternalLink>
               </h3>
 
-              <p className="mt-2 text-sm leading-6 text-[var(--text-secondary)]">
-                A Pomodoro&#8209;style focus timer featuring real-time progress
-                feedback, configurable settings, and a responsive, fully
-                keyboard-accessible UI.
+              <p className="mt-2 text-base leading-7 text-[var(--text-secondary)]">
+                A work and study timer app featuring real&#8209;time progress
+                feedback, persistent session history, and a responsive,
+                keyboard&#8209;accessible UI.
               </p>
 
-              <div className="mt-4 flex flex-wrap gap-2">
+              <div className="mt-4 flex flex-wrap gap-x-3 gap-y-1 font-mono text-sm text-[var(--text-muted)]">
                 {TECH.map(({ name, href }) => (
                   <a
                     key={name}
                     href={href}
                     target="_blank"
                     rel="noreferrer noopener"
-                    className="rounded-full border border-[var(--line)] bg-[var(--card-strong)] px-3 py-1 text-xs text-[var(--text-secondary)] transition hover:border-[var(--line--hover)] hover:bg-[var(--card)] hover:text-[var(--text-primary)]"
+                    className="transition-colors before:content-['`'] after:content-['`'] hover:text-[var(--text-primary)]"
                   >
                     {name}
                   </a>
@@ -150,7 +153,7 @@ export default function App() {
         </motion.section>
 
         <motion.hr
-          className="my-10 border-[var(--line)]"
+          className="my-10 border-dashed border-[var(--line)]"
           {...motionProps}
           transition={{ ...motionProps.transition, delay: 0.5 }}
         />
@@ -161,14 +164,14 @@ export default function App() {
         >
           <SectionHeading id="connect">Connect</SectionHeading>
 
-          <div className="mt-5 grid gap-3 sm:grid-cols-3">
+          <div className="mt-5 flex flex-wrap gap-x-5 gap-y-3">
             {SOCIALS.map(({ name, href, Icon }) => (
               <a
                 key={name}
                 href={href}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="group flex items-center gap-2 rounded-lg border border-[var(--line)] bg-[var(--card)] px-4 py-3 text-sm text-[var(--text-secondary)] transition hover:border-[var(--line--hover)] hover:bg-[var(--card-strong)] hover:text-[var(--text-primary)]"
+                className="group flex items-center gap-2 text-base text-[var(--link)] underline decoration-[var(--line)] underline-offset-4 transition-colors hover:text-[var(--link-hover)] hover:decoration-current"
               >
                 <Icon />
                 {name}

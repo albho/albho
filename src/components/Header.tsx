@@ -20,9 +20,21 @@ const applyTheme = (theme: Theme) => {
   document.documentElement.classList.toggle('light', theme === 'light');
 };
 
+const applyThemeWithoutTransitions = (theme: Theme) => {
+  document.documentElement.classList.add('theme-transition-disabled');
+  applyTheme(theme);
+
+  window.requestAnimationFrame(() => {
+    window.requestAnimationFrame(() => {
+      document.documentElement.classList.remove('theme-transition-disabled');
+    });
+  });
+};
+
 export default function Header() {
   const [time, setTime] = useState(getVancouverTime);
   const [theme, setTheme] = useState<Theme>(getInitialTheme);
+  const [isThemeSwitching, setIsThemeSwitching] = useState(false);
 
   useEffect(() => {
     const interval = window.setInterval(() => {
@@ -39,7 +51,7 @@ export default function Header() {
       if (localStorage.getItem('theme')) return;
 
       const nextTheme: Theme = media.matches ? 'dark' : 'light';
-      applyTheme(nextTheme);
+      applyThemeWithoutTransitions(nextTheme);
       setTheme(nextTheme);
     };
 
@@ -50,18 +62,24 @@ export default function Header() {
   const toggleTheme = () => {
     const nextTheme: Theme = theme === 'dark' ? 'light' : 'dark';
 
-    applyTheme(nextTheme);
+    setIsThemeSwitching(true);
+    applyThemeWithoutTransitions(nextTheme);
     localStorage.setItem('theme', nextTheme);
     setTheme(nextTheme);
+
+    window.requestAnimationFrame(() => {
+      setIsThemeSwitching(false);
+    });
   };
 
   return (
     <motion.header
       initial={{ opacity: 0, y: -8 }}
       animate={{ opacity: 1, y: 0 }}
+      className="fixed inset-x-0 top-0 z-50 bg-[var(--header-bg)] backdrop-blur-md"
       transition={{ duration: 0.45, ease: 'easeOut', delay: 0.15 }}
     >
-      <div className="flex items-baseline justify-between text-sm">
+      <div className="mx-auto flex max-w-2xl items-center justify-between p-6 text-base">
         <time
           dateTime={new Date().toISOString()}
           className="font-mono tabular-nums text-[var(--text-secondary)]"
@@ -73,7 +91,7 @@ export default function Header() {
           type="button"
           onClick={toggleTheme}
           aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-          className="grid size-9 place-items-center rounded-lg text-[var(--text-secondary)] transition hover:text-[var(--text-primary)]"
+          className="grid size-9 place-items-center text-[var(--text-secondary)] transition hover:text-[var(--text-primary)] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[var(--line)]"
         >
           <AnimatePresence mode="wait" initial={false}>
             <motion.span
@@ -81,7 +99,10 @@ export default function Header() {
               initial={{ opacity: 0, rotate: -20, scale: 0.85 }}
               animate={{ opacity: 1, rotate: 0, scale: 1 }}
               exit={{ opacity: 0, rotate: 20, scale: 0.85 }}
-              transition={{ duration: 0.18, ease: 'easeOut' }}
+              transition={{
+                duration: isThemeSwitching ? 0 : 0.18,
+                ease: 'easeOut',
+              }}
             >
               {theme === 'dark' ? <Moon size={18} /> : <Sun size={18} />}
             </motion.span>
