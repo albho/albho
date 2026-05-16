@@ -1,15 +1,44 @@
 import { motion } from 'motion/react';
 import intfocPresentation from './assets/intfoc_presentation.png';
+import reactComponentPlayground from './assets/react_component_playground_presentation.png';
 import { GitHub, LinkedIn, Medium } from './assets/svgs';
 import ExternalLink from './components/ExternalLink';
 import Header from './components/Header';
 import SectionHeading from './components/SectionHeading';
 
-const TECH = [
-  { name: 'React', href: 'https://react.dev' },
-  { name: 'TypeScript', href: 'https://www.typescriptlang.org/' },
-  { name: 'Tailwind CSS', href: 'https://tailwindcss.com/' },
-  { name: 'Motion', href: 'https://motion.dev/' },
+const PROJECTS = [
+  {
+    name: 'React Component Playground',
+    href: 'https://albho-react-component-playground.vercel.app/',
+    image: reactComponentPlayground,
+    imageAlt: 'React Component Playground interface',
+    description:
+      'A component playground for exploring how common web UI components should behave in real production scenaries.',
+    tech: [
+      { name: 'React', href: 'https://react.dev' },
+      { name: 'TypeScript', href: 'https://www.typescriptlang.org/' },
+      { name: 'Sass', href: 'https://sass-lang.com/' },
+    ],
+  },
+  {
+    name: 'IntFoc',
+    href: 'https://intfoc.ca',
+    image: intfocPresentation,
+    imageAlt: 'IntFoc timer interface',
+    description: (
+      <>
+        A work and study timer app featuring real&#8209;time progress feedback,
+        persistent session history, and a responsive, keyboard&#8209;accessible
+        UI.
+      </>
+    ),
+    tech: [
+      { name: 'React', href: 'https://react.dev' },
+      { name: 'TypeScript', href: 'https://www.typescriptlang.org/' },
+      { name: 'Tailwind CSS', href: 'https://tailwindcss.com/' },
+      { name: 'Motion', href: 'https://motion.dev/' },
+    ],
+  },
 ];
 
 const SOCIALS = [
@@ -30,13 +59,11 @@ const SOCIALS = [
   },
 ];
 
-const fadeIn = {
-  hidden: { opacity: 0, y: 10 },
-  visible: { opacity: 1, y: 0 },
-};
-
 const motionProps = {
-  variants: fadeIn,
+  variants: {
+    hidden: { opacity: 0, y: 10 },
+    visible: { opacity: 1, y: 0 },
+  },
   initial: 'hidden',
   animate: 'visible',
   transition: { duration: 0.5, ease: 'easeOut' },
@@ -94,8 +121,8 @@ export default function App() {
 
             <p className="mt-4 text-base leading-7 text-[var(--text-secondary)]">
               Owned frontend platforms across marketing and product experiences.
-              Built React interfaces that supported 2x user growth and helped
-              improve product adoption.
+              Maintained user&#8209;facing React interfaces that supported 2x
+              user growth and product adoption.
             </p>
           </article>
         </motion.section>
@@ -112,44 +139,48 @@ export default function App() {
         >
           <SectionHeading id="projects">Projects</SectionHeading>
 
-          <article className="mt-5">
-            <img
-              src={intfocPresentation}
-              alt="IntFoc timer interface"
-              className="w-full object-cover"
-            />
+          <div className="mt-5 space-y-12">
+            {PROJECTS.map(
+              ({ name, href, image, imageAlt, description, tech }) => (
+                <article key={name}>
+                  <img
+                    src={image}
+                    alt={imageAlt}
+                    className="w-full object-cover"
+                  />
 
-            <div className="mt-5">
-              <h3 className="font-medium">
-                <ExternalLink
-                  href="https://intfoc.ca"
-                  className="text-[var(--link)] underline decoration-[var(--line)] underline-offset-4 hover:text-[var(--link-hover)] hover:decoration-current"
-                >
-                  IntFoc
-                </ExternalLink>
-              </h3>
+                  <div className="mt-5">
+                    <h3 className="font-medium">
+                      <ExternalLink
+                        href={href}
+                        className="text-[var(--link)] underline decoration-[var(--line)] underline-offset-4 hover:text-[var(--link-hover)] hover:decoration-current"
+                      >
+                        {name}
+                      </ExternalLink>
+                    </h3>
 
-              <p className="mt-2 text-base leading-7 text-[var(--text-secondary)]">
-                A work and study timer app featuring real&#8209;time progress
-                feedback, persistent session history, and a responsive,
-                keyboard&#8209;accessible UI.
-              </p>
+                    <p className="mt-2 text-base leading-7 text-[var(--text-secondary)]">
+                      {description}
+                    </p>
 
-              <div className="mt-4 flex flex-wrap gap-x-3 gap-y-1 font-mono text-sm text-[var(--text-muted)]">
-                {TECH.map(({ name, href }) => (
-                  <a
-                    key={name}
-                    href={href}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    className="transition-colors before:content-['`'] after:content-['`'] hover:text-[var(--text-primary)]"
-                  >
-                    {name}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </article>
+                    <div className="mt-4 flex flex-wrap gap-x-3 gap-y-1 font-mono text-sm text-[var(--text-muted)]">
+                      {tech.map(({ name, href }) => (
+                        <a
+                          key={name}
+                          href={href}
+                          target="_blank"
+                          rel="noreferrer noopener"
+                          className="transition-colors before:content-['`'] after:content-['`'] hover:text-[var(--text-primary)]"
+                        >
+                          {name}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                </article>
+              ),
+            )}
+          </div>
         </motion.section>
 
         <motion.hr
