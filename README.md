@@ -21,6 +21,6 @@ I care a lot about component architecture, thoughtful UI/UX details, and fronten
 
 Feel free to reach out!
 
-- Portfolio: [albho.github.io/albho](https://albho.github.io/albho)
+- Website: [albho.github.io/albho](https://albho.github.io/albho)
 - LinkedIn: [linkedin.com/in/albert-ho-vancouver/](https://www.linkedin.com/in/albert-ho-vancouver/)
 - Email: [albertho.dev@gmail.com](mailto:albertho.dev@gmail.com)
