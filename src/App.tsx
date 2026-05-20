@@ -83,8 +83,9 @@ export default function App() {
           </p>
 
           <p className="mt-2 text-lg leading-8 text-balance text-[var(--text-secondary)]">
-            I enjoy building software that supports real business needs and
-            makes things easier for the people using it.
+            I'm a frontend engineer focused on React and TypeScript. I like
+            building intuitive interfaces that make complex product
+            functionality easier to use.
           </p>
         </motion.header>
 
