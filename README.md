@@ -1,3 +1,3 @@
-# Albert
+# Albert Ho
 
-Hi there, I'm Albert. I'm a frontend engineer based in Vancouver.
+Visit my [website](https://albho.github.io/albho/)
