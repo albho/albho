@@ -78,10 +78,6 @@ export default function App() {
         <motion.header {...motionProps}>
           <h1 className="font-mono text-4xl font-semibold">Albert Ho</h1>
 
-          <p className="mt-4 text-lg leading-8 text-[var(--text-secondary)]">
-            Hi there, I'm Albert. I'm a frontend engineer based in Vancouver.
-          </p>
-
           <p className="mt-2 text-lg leading-8 text-balance text-[var(--text-secondary)]">
             I'm a frontend engineer focused on React and TypeScript. I like
             building intuitive interfaces that make complex product
